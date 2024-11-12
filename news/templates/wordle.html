@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <title>Wordle</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                overflow: hidden; 
+                background-color: rgb(232, 217, 182);
+            }
+            .wordle-container {
+                margin: 50px auto;
+                max-width: 400px;
+            }
+            .wordle-input {
+                padding: 10px;
+                font-size: 18px;
+                width: 50px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+            }
+            .wordle-submit {
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            .wordle-results {
+                margin-top: 20px;
+                font-size: 20px;
+                margin-left: 60px;
+            }
+            .result {
+                float: left;
+                width: 50px;
+                background-color: grey;
+                border: 2px solid lightgrey;
+                border-radius: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+            .row::after {
+                content: "";
+                display: table;
+                clear: both;
+              }
+            .new {
+                margin-right: 20px;
+            }
+            .home {
+                width: 100px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wordle-container">
+            <h1>Welcome to Wordle!</h1>
+            <p>Guess the word by typing your guess below.</p>
+            <br><br>
+            <form id="wordle-form">
+                <input type="text" class="wordle-input" id="letter1" maxlength="1" autocomplete="off">
+                <input type="text" class="wordle-input" id="letter2" maxlength="1" autocomplete="off">
+                <input type="text" class="wordle-input" id="letter3" maxlength="1" autocomplete="off">
+                <input type="text" class="wordle-input" id="letter4" maxlength="1" autocomplete="off">
+                <input type="text" class="wordle-input" id="letter5" maxlength="1" autocomplete="off">
+                <button type="submit" class="wordle-submit">Submit</button>
+            </form>
+            <div class="wordle-results wordle-form" id="wordle-results"></div>
+            <div class="final" id="final"></div>
+
+        </div>
+
+        <script>
+            var attempts = 0;
+            function moveToNextInput(currentInput) {
+                const maxLength = parseInt(currentInput.getAttribute('maxlength'));
+                const currentLength = currentInput.value.length;
+                if (currentLength >= maxLength) {
+                    const nextIndex = Array.from(document.getElementsByClassName('wordle-input')).indexOf(currentInput) + 1;
+                    if (nextIndex < 5) {
+                        document.getElementsByClassName('wordle-input')[nextIndex].focus();
+                    }
+                }
+            }
+
+            function moveToPrevInput(currentInput) {
+                const prevIndex = Array.from(document.getElementsByClassName('wordle-input')).indexOf(currentInput) - 1;
+                if (prevIndex >= 0) {
+                    document.getElementsByClassName('wordle-input')[prevIndex].focus();
+                }
+            }
+    
+
+            const inputs = document.getElementsByClassName('wordle-input');
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener('input', function() {
+                    moveToNextInput(this);
+                });
+
+                inputs[i].addEventListener('keydown', function(event) {
+                    if (event.key === 'Backspace') {
+                        if (this.value === '') {
+                            event.preventDefault();
+                
+                            moveToPrevInput(this);
+                        }
+                    }
+                });
+            }
+
+            document.getElementById('wordle-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const guess = [
+                    document.getElementById('letter1').value.trim().toUpperCase(),
+                    document.getElementById('letter2').value.trim().toUpperCase(),
+                    document.getElementById('letter3').value.trim().toUpperCase(),
+                    document.getElementById('letter4').value.trim().toUpperCase(),
+                    document.getElementById('letter5').value.trim().toUpperCase()
+                ];
+
+                if (guess.some(letter => letter.length !== 1)) {
+                    alert("Please enter a 1-letter in each box.");
+                    return;
+                }
+                checkGuess(guess.join(''));
+
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById('letter' + i).value = '';
+                }
+                document.getElementById('letter1').focus();
+    
+            });
+
+            function checkGuess(guess) {
+                attempts+=1;
+                const wordToGuess = "{{word}}".toUpperCase();
+                let correctCount = 0;
+                
+                document.getElementById('wordle-results').innerHTML+="<div class='row'>";
+                for (let i = 0; i < guess.length; i++) { 
+                    var lttr = 'letter'+(i+1)+'attempt'+attempts+'ans';
+                    if (guess[i] === wordToGuess[i]) {
+                        document.getElementById('wordle-results').innerHTML+="<div class='wordle-input result' id="+lttr+">"+guess[i]+"</div>";
+                        document.getElementById(lttr).style.color="lightgreen";
+                        correctCount++;
+                    } else if (wordToGuess.includes(guess[i])) {
+                        document.getElementById('wordle-results').innerHTML+="<div class='wordle-input result' id="+lttr+">"+guess[i]+"</div>";
+                        document.getElementById(lttr).style.color="yellow";
+                    }
+                    else{
+                        document.getElementById('wordle-results').innerHTML+="<div class='wordle-input result' id="+lttr+">"+guess[i]+"</div>";
+                        document.getElementById(lttr).style.color="white";
+                    }
+                }
+                document.getElementById('wordle-results').innerHTML+="</div>";
+
+
+                if (correctCount == 5) {
+                    document.getElementById('final').innerHTML+="<div class='row new'>";
+                    document.getElementById('final').innerHTML+="<h3> You got it Correct! </h3>";
+                    document.getElementById('final').innerHTML+="<form action='/index'><button type='submit' class='home'>Go Back</button></form>";
+                    document.getElementById('final').innerHTML+="</div>";
+                }
+                else if (attempts == 5) {
+                    document.getElementById('final').innerHTML+="<div class='row new'>";
+                    document.getElementById('final').innerHTML+="<h3> You got it Wrong, the answer was "+wordToGuess+" </h3>";
+                    document.getElementById('final').innerHTML+="<form action='/index'><button type='submit' class='home'>Go Back</button></form>";
+                    document.getElementById('final').innerHTML+="</div>";
+                }
+            }
+        </script>
+    </body>
+</html>

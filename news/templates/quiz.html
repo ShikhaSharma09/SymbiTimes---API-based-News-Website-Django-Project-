@@ -1,0 +1,103 @@
+{% load static %}
+<html>
+    <head>
+        <title>Quiz</title>
+        <link rel="stylesheet" href="{% static 'quiz_style.css' %}">
+    </head>
+    <body onload="master()">
+        <br><br><br><br>
+        <center>
+            <div class="main" id="main">
+                <h1>QUIZ</h1>
+                <form id='quiz' method="post" action="check_answer">
+                    {% csrf_token %}
+                </form>
+            </div>
+            <div id="start"></div>
+        </center>
+    </body>
+    <script>
+        var score = "{{score}}"
+        var cur_ques = parseInt("{{qna.0.id}}")
+        function create()
+        {
+            document.getElementById("start").innerHTML=""
+            document.getElementById("quiz").innerHTML+="<fieldset class='question-box' id='ques"+cur_ques+"'><h3>Q{{counter}} - {{qna.0.ques|safe}}</h3><br></fieldset>"
+              
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' id='{{qna.0.opt1}}' value='{{qna.0.opt1}}'><label for='{{qna.0.opt1}}'>{{qna.0.opt1}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' id='{{qna.0.opt2}}' value='{{qna.0.opt2}}'><label for='{{qna.0.opt2}}'>{{qna.0.opt2}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' id='{{qna.0.opt3}}' value='{{qna.0.opt3}}'><label for='{{qna.0.opt3}}'>{{qna.0.opt3}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' id='{{qna.0.opt4}}' value='{{qna.0.opt4}}'><label for='{{qna.0.opt4}}'>{{qna.0.opt4}}</label><br><br>"
+            
+            if (parseInt("{{counter}}")!=10)
+            {
+                document.getElementById("quiz").innerHTML+="<br><button type='submit'>Next</button>"
+            }
+            else
+            {
+                document.getElementById("quiz").innerHTML+="<br><button type='submit'>Submit</button>"
+            }
+        }
+        
+        function result()
+        {   
+            if (score > 0)
+            {
+                document.getElementById("main").innerHTML+="<br><p>Congrats!! You got <span style='color:gold'>"+score+"</span> points</p>"
+            }
+            else
+            {
+                document.getElementById("main").innerHTML+="<p>You got <span style='color:gold'>"+score+"</span> points</p>"
+            }
+            document.getElementById("main").innerHTML+="<form action='/index'><button type='submit'>Go back to HomePage</button></form>"
+            
+        }
+
+        function display_result(){
+            document.getElementById("start").innerHTML=""
+            document.getElementById("quiz").innerHTML+="<fieldset class='question-box' id='ques"+cur_ques+"'><h3>Q{{counter}} - {{qna.0.ques|safe}}</h3><br></fieldset>"
+               
+                
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' value='{{qna.0.opt1}}' disabled><label for='{{qna.0.opt1}}' id='{{qna.0.opt1}}'>{{qna.0.opt1}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' value='{{qna.0.opt2}}' disabled><label for='{{qna.0.opt2}}' id='{{qna.0.opt2}}'>{{qna.0.opt2}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' value='{{qna.0.opt3}}' disabled><label for='{{qna.0.opt3}}' id='{{qna.0.opt3}}'>{{qna.0.opt3}}</label><br><br>"
+            document.getElementById("ques"+cur_ques).innerHTML+="<input type='radio' name='ques"+cur_ques+"ans' value='{{qna.0.opt4}}' disabled><label for='{{qna.0.opt4}}' id='{{qna.0.opt4}}'>{{qna.0.opt4}}</label><br><br>"
+
+            if ("{{correct}}" == "yes"){
+                document.getElementById("{{response}}").style.color="green"
+                document.getElementById("start").style.color="white"
+                document.getElementById("start").innerHTML+="You are correct! The correct answer is {{response}}<br>"
+            }
+            else if ("{{correct}}" == "no"){
+                document.getElementById("{{response}}").style.color="red"
+                document.getElementById("{{qna.0.ans}}").style.color="green"
+                document.getElementById("start").style.color="white"
+                document.getElementById("start").innerHTML+="Thats Incorrect. The correct answer is {{qna.0.ans}}<br>"
+                document.getElementById("start").innerHTML+="{{qna.0.trivia}}"
+            }
+            document.getElementById("quiz").action="get_ques"
+            document.getElementById("quiz").innerHTML+="<br><button type='submit'>Next</button>"
+            
+        }
+
+        function master()
+        {
+            if ("{{start}}" == "no")
+            {
+                document.getElementById("start").innerHTML="<form action='get_ques'><button type='submit'>Start</button></form>"
+            }
+            else if("{{correct}}" != "")
+            {
+                display_result()
+            }
+            else if ("{{qna.0}}" != "")
+            {
+                create()
+            }
+            else
+            {
+                result()
+            }
+        }
+    </script>
+</html>

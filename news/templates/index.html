@@ -1,0 +1,897 @@
+{% load static %}
+
+<head>
+
+  <title>Symbitimes</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/WelcomePage.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index">Symbitimes</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="fetch_news">News</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li class="dropdown"><a href="#"><span>Explore</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#games">Mini Games</a></li>
+              <li><a href="#radio">Radio</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <!--<li><a class="getstarted scrollto" href="#about">Get Started</a></li>-->
+          <li><button class="getstarted scrollto" id="dark-mode-toggle">Dark Mode</button></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>Stay Updated, Stay Informed:- </h1>
+          <h2>Bite-sized News, Big Impact</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="fetch_news" class="btn-get-started scrollto">Get Started</a>
+            <a href="https://www.youtube.com/watch?v=nyd-xznCpJc" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>LIVE News</span></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+<hr>
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/abp.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/ndtv.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/ht.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/bbc.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/indiatoday.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/indiatv.png' %}" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Cliens Section -->
+<hr>
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              “Symbi Times”, an online news website, aims to provide an aesthetic and appealing portal for the readers which provides
+               up-to-date and reliable information about the current happenings around the globe in a summarized and simple words in
+                an engaging user experience.  
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i><b>Inform:</b> Provide timely, precise, and relevant news articles.</li>
+              <li><i class="ri-check-double-line"></i><b>Entertain:</b> Engage users with games, music, podcasts and quiz.</li>
+              <li><i class="ri-check-double-line"></i><b>Connect:</b> Foster community interaction through our chatbot and comment sections.</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              We want the user to be able to see and listen to what they want and not have any personal propaganda and agenda forced on them.
+               We want to present a place that has all the current event going on around the world in one single place for the user’s convenience.
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+<hr>
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3><strong>GAPS COVERED BY OUR WEBSITE </strong></h3>
+              <p>
+                The problem that our website tackles are as follows:
+              </p>
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <li>
+                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Majority biased for agenda or propaganda <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                    <p class="clr">
+                      The current state of news channels and articles is abysmal, as a majority of them are biased pieces of content meant to push an agenda or further propaganda.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Overstate minor issues as grand problems. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                    <p class="clr">
+                      The news articles currently are just over inflated talks about small or petty issues made to look like grand problems to occupy the users because of a lack of exciting news incoming.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> User-unfriendly websites with unnecessary advertisements. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                    <p class="clr">
+                      Most of the news website are not very user friendly and bombard the users with advertisements and suggestions that the user did not ask for.
+                    </p>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style="background-image: url('{% static 'assets/img/clients/news1.avif' %}')" data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+<hr>
+    <!-- ======= Skills Section ======= -->
+    <section id="skills" class="skills">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+            <img src="{% static 'assets/img/skills.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3>Features Of Our Website</h3>
+            <p class="fst-italic">
+              Many existing websites fail to offer a full comprehensive experience and some fail to strike the right balance between full 
+              coverage and its use. Some websites are filled with excessive text which leaving users want more and others misses interactive 
+              features which makes reading or consuming news a passive activity.
+            </p>
+
+            <div class="skills-content">
+
+              <div class="progress">
+                <span class="skill">User-Friendly<i class="val">100%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">Readability<i class="val">90%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">Easy To Access Games<i class="val">75%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+              <div class="progress">
+                <span class="skill">Podcasts And Music<i class="val">55%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+<hr>
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>The “Symbi Times” aims to provide an extensive platform which caters to a wide range of interests. The purpose of the online news website is to give the public an unadulterated source of gathering information about current events around the world.
+            We not only want to provide the users with news about the current happenings across the world, but to also give them a familiar place to spend their time.
+            </p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-desktop" aria-hidden="true"></i></div>
+              <h4><a href="fetch_news">Real Time</a></h4>
+              <p>Make the news that appears in the newspaper update frequently in real time.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-headphones" aria-hidden="true"></i></div>
+              <h4><a href="#radio">Radio Station</a></h4>
+              <p>Adding a radio off to the side which acts like a regular radio where the user can select a station to listen to which updates in real time.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-commenting-o" aria-hidden="true"></i></div>
+              <h4><a href="">Chatbot</a></h4>
+              <p>An AI-powered assistant that can answer queries and engage in friendly banter. The incorporation of a chatbot feature
+                 to provide assistance, answer queries, and engage them in informative conversations.</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+            <div class="icon-box">
+              <div class="icon"><i class="fa fa-gamepad" aria-hidden="true"></i></div>
+              <h4><a href="#games">Small Games </a></h4>
+              <p>Take a break from the news and challenge yourself with fun, interactive games. Add more interactive things like comics
+                 or games that one would find in a typical newspaper, like Sudoku, Crossword, Garfield, etc.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+<hr>
+    <!-- ======= Games Section ======= -->
+    <section id="games" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Games</h2>
+          <p>Put that big brain of yours at work, here in our Mini Games Corner</p>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="quiz" aria-hidden="true"></i></div>
+              <h4><a href="start_quiz">Quiz</a></h4>
+              <p>
+                Challenge your breath of knowledge with our Quiz that is sure to leave your brain puzzle. With Question from all over the country, it will take an astute mind to over come this challenge.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="wordle" aria-hidden="true"></i></div>
+              <h4><a href="start_wdle">Wordle</a></h4>
+              <p>
+                Get to guessing in our game of teasure hunt, where the teasure is a secret word that you will have to find. With each attempt you get closer but bewary, as you don't get many of them, so use them wisely.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="sudoku" aria-hidden="true"></i></div>
+              <h4><a href="">Sudoku</a></h4>
+              <p>
+                Test you mathematics skills in this ultimate game of numbers... which doesn't use much maths at all.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex " data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="tic_tac_toe" aria-hidden="true"></i></div>
+              <h4><a href="start_ttt">Tic Tac Toe</a></h4>
+              <p>
+                Participate in this game of cut-thoat competition, where allies become enemies, friends stab each other in their back, all to win at Tic Tac Toe. 
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+<hr>
+ <!-- ======= Radio Section ======= -->
+  <section id="radio" class="services section-bg" style="background-color: #181818;">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2 style="color: rgb(75, 75, 75);">Radio</h2>
+        <p style="color: rgb(161, 161, 161);">
+          Enjoy a variety of music that is sure to leave you in a daze, and a plethora of podcasts to listen to when the room gets too quite.
+        </p>
+        <br>
+        <p style="color: rgb(161, 161, 161);">Current Station: <span id="radioValue" class="current-value" >none</span></p>
+      </div>
+      <style>
+        .knob-surround {
+            position: relative;
+            background-color: grey;
+            width: 14em;
+            height: 14em;
+            border-radius: 50%;
+            border: solid 0.25em #0e0e0e;
+            margin: 5em auto;
+            background: #181818;
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1d1d1d), color-stop(1, #131313));
+            background: -ms-linear-gradient(bottom, #1d1d1d, #131313);
+            background: -moz-linear-gradient(center bottom, #1d1d1d 0%, #131313 100%);
+            background: -o-linear-gradient(#131313, #1d1d1d);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#1d1d1d', GradientType=0);
+            -webkit-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0.2em 0.1em 0.05em rgba(255, 255, 255, 0.1) inset, 0 -0.2em 0.1em 0.05em rgba(0, 0, 0, 0.5) inset, 0 0.5em 0.65em 0 rgba(0, 0, 0, 0.3);
+        }
+        .knob {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+            z-index: 10;
+        }
+        .knob:before {
+            content: "";
+            position: absolute;
+            bottom: 19%;
+            left: 19%;
+            width: 3%;
+            height: 3%;
+            background-color: #a8d8f8;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 0 0.4em 0 #79c3f4;
+            -moz-box-shadow: 0 0 0.4em 0 #79c3f4;
+            box-shadow: 0 0 0.4em 0 #79c3f4;
+        }
+        .tick {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            overflow: visible;
+        }
+        .tick:after {
+            content: "";
+            width: 0.08em;
+            height: 0.6em;
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: -1.5em;
+            left: 50%;
+            -webkit-transition: all 180ms ease-out;
+            -moz-transition: all 180ms ease-out;
+            -o-transition: all 180ms ease-out;
+            transition: all 180ms ease-out;
+        }
+        .activetick:after {
+            background-color: #a8d8f8;
+            -webkit-box-shadow: 0 0 0.3em 0.08em #79c3f4;
+            -moz-box-shadow: 0 0 0.3em 0.08em #79c3f4;
+            box-shadow: 0 0 0.3em 0.08em #79c3f4;
+            -webkit-transition: all 50ms ease-in;
+            -moz-transition: all 50ms ease-in;
+            -o-transition: all 50ms ease-in;
+            transition: all 50ms ease-in;
+        }
+        p {
+          line-height: 150%;
+          max-width: 36em;
+          margin: 1em auto;
+        }
+    </style>
+    
+
+    <div class="knob-surround">
+        <div id="knob" class="knob"></div>
+        <div id="tickContainer" class="ticks"></div>
+    </div>
+
+    <audio id="audio0"></audio>
+    <audio id="audio1" src="{% static 'JJ Heller - Growing Older.mp3' %}" autoplay muted></audio>
+    <audio id="audio2" src="{% static 'focus on your self.mp3' %}" autoplay muted></audio>
+    <audio id="audio3" src="{% static 'Justin Bieber - Last Love.mp3' %}" autoplay muted></audio>
+    <audio id="audio4" src="{% static 'If You STRUGGLE With Stress & Anxiety- Jay Shetty.mp3' %}" autoplay muted></audio>
+    <audio id="audio5" src="{% static 'Pink Sweat_At My Worst.mp3' %}" autoplay muted></audio>
+    <audio id="audio6" src="{% static 'RemaSelena Gomez_Calm Down.mp3' %}" autoplay muted></audio>
+    <audio id="audio7" src="{% static 'SATYA NADELLA_ Importance of Education.mp3' %}" autoplay muted></audio>
+    <audio id="audio8" src="{% static 'Butterflies.mp3' %}" autoplay muted></audio>
+    <audio id="audio9" src="{% static 'Conan Gray - Heather.mp3' %}" autoplay muted></audio>
+    <audio id="audio10" src="{% static 'A Woman s Love Official Video.mp3' %}" autoplay muted></audio>
+    <audio id="audio11" src="{% static 'RICH VS POOR MINDSET .mp3' %}" autoplay muted></audio>
+    <audio id="audio12" src="{% static 'I Wont Give Up.mp3' %}" autoplay muted></audio>
+    <audio id="audio13" src="{% static 'Giving UP.mp3' %}" autoplay muted></audio>
+    <audio id="audio14" src="{% static 'dream big-.denzel washington.mp3' %}" autoplay muted></audio>
+    <audio id="audio15" src="{% static 'Lewis Capaldi Someone You Loved Lyrics.mp3' %}" autoplay muted></audio>
+    <audio id="audio16" src="{% static 'Teenage Dream Sped Up.mp3' %}" autoplay muted></audio>
+    <audio id="audio17" src="{% static 'Let Her Go.mp3' %}" autoplay muted></audio>
+    <audio id="audio18" src="{% static 'Steve Jobs.mp3' %}" autoplay muted></audio>
+    <audio id="audio19" src="{% static 'When you know,you know - Lana del rey- Margaret{lyrics} ft.bleachers.mp3' %}" autoplay muted></audio>
+    <audio id="audio20" src="{% static 'Happier.mp3' %}"autoplay muted></audio>
+
+<script>
+    var knobPositionX;
+    var knobPositionY;
+    var mouseX;
+    var mouseY;
+    var knobCenterX;
+    var knobCenterY;
+    var adjacentSide;
+    var oppositeSide;
+    var currentRadiansAngle;
+    var getRadiansInDegrees;
+    var finalAngleInDegrees;
+    var radioSetting;
+    var tickHighlightPosition;
+    var startingTickAngle = -135;
+    var tickContainer = document.getElementById("tickContainer");
+    var radioKnob = document.getElementById("knob");
+    var boundingRectangle = radioKnob.getBoundingClientRect();
+    var curStation = 0;
+
+    function main()
+    {
+        radioKnob.addEventListener("mousedown", onMouseDown); //listen for mouse button click
+        document.addEventListener("mouseup", onMouseUp); //listen for mouse button release
+
+        createTicks(27, 0);
+    }
+
+    function onMouseDown()
+    {
+        document.addEventListener("mousemove", onMouseMove);
+    }
+
+    function onMouseUp()
+    {
+        document.removeEventListener("mousemove", onMouseMove);
+    }
+
+    function onMouseMove(event)
+    {
+        knobPositionX = boundingRectangle.left; 
+        knobPositionY = boundingRectangle.top; 
+
+        mouseX = event.pageX; 
+        mouseY = event.pageY;
+
+        knobCenterX = boundingRectangle.width / 2 + knobPositionX;
+        knobCenterY = boundingRectangle.height / 2 + knobPositionY;
+
+        adjacentSide = knobCenterX - mouseX; 
+        oppositeSide = knobCenterY - mouseY;
+
+        currentRadiansAngle = Math.atan2(adjacentSide, oppositeSide);
+        getRadiansInDegrees = currentRadiansAngle * 180 / Math.PI; 
+        finalAngleInDegrees = -(getRadiansInDegrees - 135); 
+        
+        if(finalAngleInDegrees >= 0 && finalAngleInDegrees <= 270)
+        {
+            radioKnob.style.transform = "rotate(" + finalAngleInDegrees + "deg)";
+            radioSetting = Math.floor(finalAngleInDegrees / (270 / 21));
+            tickHighlightPosition = Math.round((radioSetting * 2.7) / 2); ; 
+
+            createTicks(27, tickHighlightPosition);
+
+            var songID='audio'+curStation;
+            console.log(songID)
+            var song = document.getElementById(songID)
+            if (curStation!=radioSetting) 
+            {
+                curStation=radioSetting;
+                song.muted=true;
+                songID='audio'+curStation;
+                song = document.getElementById(songID)
+            }
+            if (curStation!=0)
+            {
+                song.play();
+                song.muted=false;
+            }
+            
+
+            document.getElementById("radioValue").innerHTML = "Station No. "+radioSetting;
+        }
+    }
+
+
+    function createTicks(numTicks, highlightNumTicks)
+    {
+        while(tickContainer.firstChild)
+        {
+            tickContainer.removeChild(tickContainer.firstChild);
+        }
+
+        for(var i=0;i<numTicks;i++)
+        {
+            var tick = document.createElement("div");
+
+            if(i < highlightNumTicks)
+            {
+                tick.className = "tick activetick";
+            } 
+            else {
+                tick.className = "tick";
+            }
+
+            tickContainer.appendChild(tick);
+            tick.style.transform = "rotate(" + startingTickAngle + "deg)";
+            startingTickAngle += 10;
+        }
+        startingTickAngle = -135;
+    }
+    main();
+</script>
+
+      
+
+    </div>
+  </section><!-- End Services Section -->
+<hr>
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Shikha Sharma</h4>
+                <span>Front-End Designer</span>
+                <p>2nd Year BCA with Honours in Data Science</p>
+                <div class="social">
+                  <a href="https://twitter.com/" target=”_blank”><i class="ri-twitter-fill"></i></a>
+                  <a href="https://www.facebook.com/" target=”_blank”><i class="ri-facebook-fill"></i></a>
+                  <a href="https://www.instagram.com/" target=”_blank”><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/" target=”_blank”> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Shreya Kumari</h4>
+                <span>Archivist</span>
+                <p>2nd Year BCA with Honours in Data Science</p>
+                <div class="social">
+                  <a href="https://twitter.com/" target=”_blank”><i class="ri-twitter-fill"></i></a>
+                  <a href="https://www.facebook.com/" target=”_blank”><i class="ri-facebook-fill"></i></a>
+                  <a href="https://www.instagram.com/" target=”_blank”><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/" target=”_blank”> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Soham Dharmadhikari</h4>
+                <span>Data Analyst</span>
+                <p>2nd Year BCA with Honours in Cloud Computing</p>
+                <div class="social">
+                  <a href="https://twitter.com/" target=”_blank”><i class="ri-twitter-fill"></i></a>
+                  <a href="https://www.facebook.com/" target=”_blank”><i class="ri-facebook-fill"></i></a>
+                  <a href="https://www.instagram.com/" target=”_blank”><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/" target=”_blank”> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Vidhansh Khosla</h4>
+                <span>Back-End Designer</span>
+                <p>2nd Year BCA with Honours in AIML</p>
+                <div class="social">
+                  <a href="https://twitter.com/" target=”_blank”><i class="ri-twitter-fill"></i></a>
+                  <a href="https://www.facebook.com/" target=”_blank”><i class="ri-facebook-fill"></i></a>
+                  <a href="https://www.instagram.com/" target=”_blank”><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/" target=”_blank”> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sangay Tshewang</h4>
+                <span>Audio Designer</span>
+                <p>2nd Year BCA</p>
+                <div class="social">
+                  <a href="https://twitter.com/" target=”_blank”><i class="ri-twitter-fill"></i></a>
+                  <a href="https://www.facebook.com/" target=”_blank”><i class="ri-facebook-fill"></i></a>
+                  <a href="https://www.instagram.com/" target=”_blank”><i class="ri-instagram-fill"></i></a>
+                  <a href="https://www.linkedin.com/" target=”_blank”> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+   
+
+   <hr>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>1, Atur Centre, Chatuhshrungi Rd, Model Colony, Shivajinagar, Pune, Maharashtra 411016</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>symbitimes26@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+91 1234567890</p>
+              </div>
+
+              <!---<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>-->
+              <a href="https://www.google.com/maps/place/Symbiosis+Institute+of+Computer+Studies+and+Research/@18.5334494,73.8312226,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2bf797c679e05:0x2579cb5b06c4d90b!8m2!3d18.5334443!4d73.8337975!16s%2Fm%2F0272pw4?hl=en-US&entry=ttu" target="_blank"><img src="{% static 'img/map (2).png' %}" class="map_size"></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="" method="post">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+<hr>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Join Us</h4>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+<hr>
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Symbitimes</h3>
+            <p>
+              1, Atur Centre, <br>
+              Chatuhshrungi Rd, Model Colony, Shivajinagar<br>
+              Pune, Maharashtra 411016 <br><br>
+              <strong>Phone:</strong> +91 1234567890<br>
+              <strong>Email:</strong>symbitimes26@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="fetch_news">News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#radio">Radio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#games">Mini Games</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="fetch_news">Real Time News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#radio">Radio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#games">Mini Games</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Chatbot</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.skype.com/en/" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="https://www.linkedin.com/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+<hr>
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        <span>This Website is for <strong>Academic Purposes</strong> only.</span>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+        "composerPlaceholder": "Chat with bot",
+        "botConversationDescription": "This chatbot was built surprisingly fast with Botpress",
+        "botId": "57e4fafa-e05b-4170-83af-6f1f56adea7a",
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+        "messagingUrl": "https://messaging.botpress.cloud",
+        "clientId": "57e4fafa-e05b-4170-83af-6f1f56adea7a",
+        "webhookId": "a306d128-af6b-418b-9e82-5fb1ef24828d",
+        "lazySocket": true,
+        "themeName": "prism",
+        "stylesheet": "https://webchat-styler-css.botpress.app/prod/30c4594b-e761-4ea6-a2c8-132619e38586/v41227/style.css",
+        "frontendVersion": "v1",
+        "showPoweredBy": true,
+        "theme": "prism",
+        "themeColor": "#2563eb"
+    });
+  </script>
+
+</body>
+
+</html>

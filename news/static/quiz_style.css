@@ -1,0 +1,61 @@
+body{
+    background-image: url('space_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.question-box{
+    border-style: solid double;
+    border-radius: 20px;
+    border-width: 10px;
+    width: 65%;
+    height: 35%;
+    margin-top: 120px;
+    background-image: url('space_quiz_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(76, 209, 239);
+    border-color: rgb(66, 27, 157);
+    font-family: monospace;
+}
+h3{
+    font-size: 180%;
+    color:rgb(158, 136, 230)
+
+}
+label{
+    font-size: large;
+}
+button{
+    border: 0;
+    outline: none;
+    border-radius: 15px;
+    height: 40px;
+    width: 120;
+    font-size:large;
+    color: ivory;
+    background-color:lightcoral;
+    text-align: center;
+    transition: .3s;
+    font-family: monospace;
+}
+button:hover{
+    transform: scale(1.2);
+}
+h1{
+    font-family: fantasy;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    color: lightblue;
+    text-shadow: 1px 1px 5px darkslateblue;
+    font-size: 400%;
+}
+p{
+    font-family: fantasy;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    color: rgb(238, 235, 151);
+    text-shadow: 1px 1px 5px rgb(236, 129, 71);
+    font-size: 400%;
+}

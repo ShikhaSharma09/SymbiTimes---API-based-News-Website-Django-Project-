@@ -1,0 +1,224 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body{
+                background-image: url("{% static 'tic_tac_toe_bg.jpg' %}");
+            }
+            table{
+                
+                width: 450px;
+                height: 450px;
+                border-spacing: 0px;
+                table-layout: fixed;
+            }
+            tr,td{
+                border: 8px rgb(72, 48, 25);
+                background-size: contain;
+                background-repeat: no-repeat;
+                table-layout: fixed;
+                height: 50px;
+                width: 50px;
+                border-style: ridge outset solid outset;
+                
+            }
+            h2{
+                color: azure;
+                text-shadow: 1px 1px 1px black;
+            }
+            [id^='1']{
+                border-left: transparent;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            [id^='3']{
+                border-right: transparent;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            [id$='1']{
+                border-top: transparent;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            [id$='3']{
+                border-bottom: transparent;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            
+            button{
+                background: transparent;
+                height: 100%;
+                width: 100%;
+                outline: none;
+                border: 0px;
+            }
+            .submit{
+                background-color: black;
+                color: white;
+                height: 35px;
+                width: 60px;
+            }
+            #title{
+                color: olivedrab;
+                text-shadow: 1px 1px 1px black;
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            #return{
+                background: darkorange;
+                border: 4px solid rgb(214, 74, 35);
+                border-radius: 10px;
+                height: 65px;
+                width: 180px;
+            }
+            #text{
+                color: azure;
+            }
+            .ttt_button{
+                border: 2px white solid;
+                border-radius: 10px;
+                height: 50px;
+                width: 100;
+                font-size:large;
+                color: ivory;
+                background-color:darkslategray;
+                text-align: center;
+                font-family: monospace;
+            }
+            .p2{
+                width: 50px;
+                height: 30px;
+                border-radius: 10px;
+                outline: none;
+                background-color: aliceblue;
+                color: black;
+            }
+        </style>
+    </head>
+    <body onload="player2_id()">
+        <center>
+            <h1 id="title">Tic-Tac-Toe</h1>
+            <div id="main">
+                <div id="turn"> 
+                    <h2>Player-1's Turn</h2>
+                </div>
+                <table>
+                    <tr>
+                        <td id="11"><button onclick="replace_image('11')"></button></td> 
+                        <td id="21"><button onclick="replace_image('21')"></button></td> 
+                        <td id="31"><button onclick="replace_image('31')"></button></td>
+                    </tr>
+                    <tr>
+                        <td id="12"><button onclick="replace_image('12')"></button></td> 
+                        <td id="22"><button onclick="replace_image('22')"></button></td> 
+                        <td id="32"><button onclick="replace_image('32')"></button></td>
+                    </tr>
+                    <tr>
+                        <td id="13"><button onclick="replace_image('13')"></button></td> 
+                        <td id="23"><button onclick="replace_image('23')"></button></td> 
+                        <td id="33"><button onclick="replace_image('33')"></button></td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+    </body>
+    <script>
+        var table = [
+        ['11','21','31'],
+        ['12','22','32'],
+        ['13','23','33']
+        ]
+        var turn = 0
+        function replace_image(cell)
+        {
+            if (turn < 10)
+            {
+                if (turn%2 == 0)
+                {
+                    document.getElementById(cell).style.backgroundImage += "url(\"{% static 'chalk_cross.png' %}\")"
+                    document.getElementById(cell).innerHTML=""
+                    turn+=1
+                    replace_value(cell,'X')
+                    check(1,'X')
+                }
+                else
+                {
+                    document.getElementById(cell).style.backgroundImage += "url(\"{% static 'chalk_circle.png' %}\")"
+                    document.getElementById(cell).innerHTML=""
+                    turn+=1
+                    replace_value(cell,'O')
+                    check(2,'O')
+                }
+            }
+        }
+        function replace_value(cell,symbol)
+        {
+            for (let row=0;row<3;row++)
+            {
+                for (let col=0;col<3;col++)
+                {
+                    if(table[row][col]==cell)
+                    {
+                        table[row][col]=symbol
+                    }
+                }
+            }
+        }
+        function check(player,symbol)
+        {
+            for (let i=0;i<3; i++)
+            {
+                if (
+                    (table[i][0] == table[i][1] && table[i][1] == table[i][2] && table[i][2] == symbol) ||
+                    (table[0][i] == table[1][i] && table[1][i] == table[2][i] && table[2][i] == symbol) ||
+                    (table[0][0] == table[1][1] && table[1][1] == table[2][2] && table[2][2] == symbol) ||
+                    (table[0][2] == table[1][1] && table[1][1] == table[2][0] && table[2][0] == symbol)
+                    )
+                {
+                    document.getElementById('turn').innerHTML="<h1>Player-"+player+" Won</h1>"
+                    
+                    stop()
+                    break
+                }
+                else
+                {
+                    if(turn%2==0)
+                    {
+                        document.getElementById('turn').innerHTML="<h2>Player-1's Turn</h2>"
+                    }
+                    else
+                    {
+                        document.getElementById('turn').innerHTML="<h2>Player-2's Turn</h2>"
+                    }
+                    
+                }
+                if (turn >= 9){
+                    document.getElementById('turn').innerHTML="<h1>Its a Draw</h1>"
+                    stop()
+                    break
+                }
+            }
+            
+        }
+        function stop()
+        {
+            for (let row=0; row<3; row++)
+            {
+                for (let col=0; col<3; col++)
+                {
+                    var cell = String(table[row][col])
+                    if (cell != 'X' && cell != 'O')
+                    {
+                        document.getElementById(cell).innerHTML=""
+                    }
+                }
+            }
+            document.getElementById("main").innerHTML+="<br><br><form action='index' id='return'></form>"
+            document.getElementById("return").innerHTML+="<button type='submit'><h3 id='text'>Go to Game Menu</h3></button>"
+        }
+
+        
+    </script>
+</html>
